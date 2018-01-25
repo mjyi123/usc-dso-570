@@ -67,7 +67,7 @@ class Node(object):
             myLabel='{:.0f}'.format(self.evaluate())
         else:
             myLabel=self.type
-        graph.node(str(self),myLabel)
+        graph.node(repr(self),myLabel)
         for child in self.children:
             child._drawNodes(graph,showValues)
             
@@ -78,7 +78,7 @@ class Node(object):
                 myLabel=child.name
             else:
                 myLabel='{0} ({1:.0%})'.format(child.name,self.probabilities[i])
-            graph.edge(str(self),str(child),label=myLabel)
+            graph.edge(repr(self),repr(child),label=myLabel)
         for child in self.children:
             child._drawEdges(graph)
 
@@ -88,7 +88,42 @@ class Node(object):
             - showValues: True if draw the values; False if draw the shape only.
             - treeName: a name for the decision tree that is used by the underlying graphviz package.
         '''
-        graph=Digraph(treeName)
-        self._drawNodes(graph,showValues)
-        self._drawEdges(graph)
-        return graph
+        try:
+            graph=Digraph(treeName)
+            self._drawNodes(graph,showValues)
+            self._drawEdges(graph)
+            return graph
+        except:
+            return str(self)
+    
+    def _toText(self):
+        ''' Function that outputs the underling graph in text format. Used internally by __str__(self) 
+        for print statements.
+        Returns: 
+            - title: a description of the current node.
+            - lines: a list of strings representing the descendants of the current node '''
+        title='{0}, {1} node with value {2:.2f}'.format(self.name,self.type.upper(),self.evaluate())
+        lines=[]
+        if self.type=='decision':
+            ownValue=self.evaluate()
+            for i, child in enumerate(self.children):
+                childTitle,childLines=child._toText()
+                if child.evaluate()==ownValue:
+                    suffix=' (Optimal decision for node {})'.format(self.name)
+                else:
+                    suffix=''
+                lines.append('--> Option {0}: {1}{2}'.format(i+1,childTitle,suffix))
+                lines+=['    '+childLine for childLine in childLines]
+        elif self.type=='event':
+            for i, child in enumerate(self.children):
+                childTitle,childLines=child._toText()
+                lines.append('--> w.p. {0:.2f}: {1}'.format(self.probabilities[i],childTitle))
+                lines+=['    '+childLine for childLine in childLines]
+        return title,lines
+    
+    def __str__(self):
+        title,lines=self._toText()
+        return '\n'.join([title]+lines)
+        
+        
+    

@@ -76,4 +76,4 @@ def buildTree():
 
 tree=buildTree()
 graph=tree.graph()
-display(graph)
+

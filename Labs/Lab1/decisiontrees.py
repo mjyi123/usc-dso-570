@@ -88,7 +88,7 @@ class Node(object):
             - treeName: a name for the decision tree that is used by the underlying graphviz package.
         '''
         try:
-            from agraphviz import Digraph
+            from graphviz import Digraph
             graph=Digraph(treeName)
             self._drawNodes(graph,showValues)
             self._drawEdges(graph)

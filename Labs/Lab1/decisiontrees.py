@@ -1,6 +1,5 @@
 # decisiontrees.py
 # Import the relevant modules from graphviz. Digraph means a graph with directions.
-from graphviz import Digraph
 
 # Create a type called Node. A class is a complex object with associated attributes and functions.
 class Node(object):
@@ -89,6 +88,7 @@ class Node(object):
             - treeName: a name for the decision tree that is used by the underlying graphviz package.
         '''
         try:
+            from agraphviz import Digraph
             graph=Digraph(treeName)
             self._drawNodes(graph,showValues)
             self._drawEdges(graph)

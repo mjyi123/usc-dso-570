@@ -1,0 +1,76 @@
+
+Gurobi 7.5.2 (win64, Python) logging started 04/16/18 16:33:08
+
+Academic license - for non-commercial use only
+Optimize a model with 1803 rows, 1350 columns and 4950 nonzeros
+Model has 1 quadratic constraint
+Variable types: 900 continuous, 450 integer (450 binary)
+Coefficient statistics:
+  Matrix range     [1e-03, 1e+00]
+  QMatrix range    [9e-03, 1e+00]
+  Objective range  [4e-04, 6e-01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-02, 2e+01]
+  QRHS range       [6e-02, 6e-02]
+Presolve removed 890 rows and 445 columns
+Presolve time: 0.10s
+Presolved: 913 rows, 905 columns, 3175 nonzeros
+Variable types: 455 continuous, 450 integer (450 binary)
+
+Root relaxation: objective 4.578558e-01, 12 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.37465    0    1          -    0.37465      -     -    0s
+H    0     0                       0.3345072    0.37465  12.0%     -    0s
+     0     0    0.34599    0    1    0.33451    0.34599  3.43%     -    0s
+H    0     0                       0.3452785    0.34599  0.20%     -    0s
+H    0     0                       0.3452785    0.34599  0.20%     -    0s
+     0     2    0.34599    0    1    0.34528    0.34599  0.20%     -    0s
+H   76     1                       0.3453299    0.34543  0.03%   3.8    1s
+*   76     1               2       0.3453299    0.34543  0.03%   3.8    1s
+
+Explored 140 nodes (667 simplex iterations) in 1.32 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 4: 0.34533 0.345279 0.345279 0.334507 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.453299079440e-01, best bound 3.453641180308e-01, gap 0.0099%
+Optimize a model with 1803 rows, 1350 columns and 4950 nonzeros
+Model has 1 quadratic constraint
+Variable types: 900 continuous, 450 integer (450 binary)
+Coefficient statistics:
+  Matrix range     [1e-03, 1e+00]
+  QMatrix range    [9e-03, 1e+00]
+  Objective range  [4e-04, 6e-01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-02, 2e+01]
+  QRHS range       [6e-02, 6e-02]
+Presolve removed 890 rows and 445 columns
+Presolve time: 0.05s
+Presolved: 913 rows, 905 columns, 3175 nonzeros
+Variable types: 455 continuous, 450 integer (450 binary)
+
+Root relaxation: objective 4.578558e-01, 12 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.37465    0    1          -    0.37465      -     -    0s
+H    0     0                       0.3345072    0.37465  12.0%     -    0s
+     0     0    0.34599    0    1    0.33451    0.34599  3.43%     -    0s
+H    0     0                       0.3452785    0.34599  0.20%     -    0s
+H    0     0                       0.3452785    0.34599  0.20%     -    0s
+     0     2    0.34599    0    1    0.34528    0.34599  0.20%     -    0s
+H   76     1                       0.3453299    0.34543  0.03%   3.8    1s
+*   76     1               2       0.3453299    0.34543  0.03%   3.8    1s
+
+Explored 140 nodes (667 simplex iterations) in 1.61 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 4: 0.34533 0.345279 0.345279 0.334507 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.453299079440e-01, best bound 3.453641180308e-01, gap 0.0099%
